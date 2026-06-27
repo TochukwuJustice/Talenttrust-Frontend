@@ -7,11 +7,9 @@ import { ToastProvider } from '@/components/toast/toast-provider';
 const { WalletProvider, useWallet } = jest.requireActual('@/contexts/WalletContext');
 
 jest.mock('@/lib/safeStorage', () => ({
-  safeStorage: {
-    getItem: jest.fn(),
-    setItem: jest.fn(),
-    removeItem: jest.fn(),
-  },
+  getItem: jest.fn(),
+  setItem: jest.fn(),
+  removeItem: jest.fn(),
 }));
 
 jest.mock('@stellar/freighter-api', () => ({
@@ -30,7 +28,7 @@ const MockComponent = () => {
 };
 
 describe('WalletContext persistence', () => {
-  const { safeStorage } = require('@/lib/safeStorage');
+  const safeStorage = require('@/lib/safeStorage');
 
   beforeEach(() => {
     jest.clearAllMocks();
